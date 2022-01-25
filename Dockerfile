@@ -4,4 +4,4 @@ FROM debian:buster-slim
 ARG PORT
 RUN apt-get update && apt-get install -y libssl1.1 && rm -rf /var/lib/apt/lists/*
 COPY --from=builder /usr/local/cargo/bin/matchbox_server /usr/local/bin/matchbox_server
-CMD export HOST=$HOST && matchbox_server
+CMD export HOST=0.0.0.0:$PORT && matchbox_server
