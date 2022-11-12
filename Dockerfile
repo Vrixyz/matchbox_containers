@@ -1,4 +1,4 @@
-FROM rust:1.58 as builder
+FROM rust:1.64 as builder
 RUN cargo install matchbox_server
 FROM debian:buster-slim
 ARG PORT
