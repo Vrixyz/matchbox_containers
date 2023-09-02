@@ -6,12 +6,15 @@ kill_timeout = 300
 processes = []
 
 [build]
-  dockerfile = "Dockerfile"
+  dockerfile = "jhelsing/matchbox-server"
 
 [env]
   PORT=3000
   RUST_LOG="debug"
 
+[experimental]
+  cmd = "export HOST=0.0.0.0:$PORT && matchbox_server"
+  
 [[services]]
   http_checks = []
   internal_port = 3000
